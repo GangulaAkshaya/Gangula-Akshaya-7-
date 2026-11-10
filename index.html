@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gangula Akshaya | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #080d19;
+    --card: #111b2d;
+    --text: #ffffff;
+    --muted: #aab6ca;
+    --blue: #3987ff;
+    --border: #263650;
+}
+
+body.light {
+    --bg: #f3f6fc;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #59677c;
+    --border: #dce4f0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    transition: .3s;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT SIDEBAR */
+
+.sidebar {
+    width: 260px;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--blue);
+    margin-bottom: 15px;
+}
+
+.profile h2 {
+    font-size: 21px;
+}
+
+.profile p {
+    color: var(--blue);
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.side-menu {
+    margin-top: 25px;
+}
+
+.side-menu a {
+    display: block;
+    padding: 13px 15px;
+    margin: 7px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--muted);
+    transition: .3s;
+}
+
+.side-menu a:hover,
+.side-menu a.active {
+    background: var(--blue);
+    color: white;
+}
+
+/* MAIN CONTENT */
+
+main {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 35px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+header h3 {
+    color: var(--blue);
+    letter-spacing: 2px;
+}
+
+.theme-btn {
+    padding: 10px 17px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 260px;
+}
+
+.hero-content h1 {
+    font-size: 45px;
+    margin: 15px 0;
+}
+
+.hero-content h1 span {
+    color: var(--blue);
+}
+
+.hero-content h3 {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 550px;
+}
+
+.hero-image {
+    width: 280px;
+    height: 330px;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 3px solid var(--blue);
+    box-shadow: 0 0 30px #3987ff44;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 55px 0;
+}
+
+.section-title {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.section-title span {
+    color: var(--blue);
+}
+
+.description {
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 850px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card);
+    padding: 23px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--blue);
+}
+
+.card h3 {
+    color: var(--blue);
+    margin-bottom: 12px;
+}
+
+.card p, .card li {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.skill {
+    padding: 15px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+    color: var(--text);
+}
+
+.contact-info p {
+    margin: 15px 0;
+    color: var(--muted);
+}
+
+.contact-info a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 30px;
+    border-top: 1px solid var(--border);
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px;
+    }
+
+    .container {
+        display: block;
+    }
+
+    .side-menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .side-menu a {
+        text-align: center;
+        padding: 10px 5px;
+    }
+
+    main {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-image {
+        margin: auto;
+        max-width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="profile">
+        <img src="assets/profile.jpg" alt="Akshaya profile photo">
+        <h2>Gangula Akshaya</h2>
+        <p>Java Developer | CSE Student</p>
+    </div>
+
+    <nav class="side-menu">
+        <a href="#home" class="active">⌂ Home</a>
+        <a href="#about">♙ About Me</a>
+        <a href="#skills">⚙ Skills</a>
+        <a href="#education">▤ Education</a>
+        <a href="#projects">⌘ Projects</a>
+        <a href="#certifications">✦ Certifications</a>
+        <a href="#resume">▣ Resume</a>
+        <a href="#contact">✉ Contact</a>
+    </nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main>
+
+<header>
+    <h3>MY PORTFOLIO</h3>
+    <button class="theme-btn" onclick="toggleTheme()">☀ / ☾</button>
+</header>
+
+<!-- HOME -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+        <p>HELLO, WELCOME TO MY PORTFOLIO</p>
+
+        <h1>I'm <span>Akshaya</span></h1>
+
+        <h3>Final Year Computer Science Engineering Student</h3>
+
+        <p>
+            I am interested in Java Development, Software Engineering
+            and building useful applications. I enjoy learning new
+            technologies and solving programming problems.
+        </p>
+
+        <a href="#projects" class="btn">View Projects →</a>
+        <a href="#contact" class="btn">Contact Me</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="assets/profile.jpg" alt="Professional profile photo">
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">About <span>Me</span></h2>
+
+    <p class="description">
+        I am a final-year B.Tech Computer Science and Engineering
+        student at QIS College of Engineering and Technology.
+        I have an interest in Java programming, database management
+        and web development.
+
+        My career objective is to start my professional career
+        in software development by applying my technical knowledge,
+        problem-solving skills and project experience.
+    </p>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2 class="section-title">Technical <span>Skills</span></h2>
+
+    <div class="grid">
+        <div class="skill">Java</div>
+        <div class="skill">C Programming</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">SQL</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">JDBC</div>
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <h2 class="section-title">My <span>Education</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>B.Tech – CSE</h3>
+            <p>QIS College of Engineering and Technology</p>
+            <p>2023 – 2027</p>
+            <p>CGPA: 8.0</p>
+        </div>
+
+        <div class="card">
+            <h3>Intermediate – MPC</h3>
+            <p>Vagdevi Junior College</p>
+            <p>2021 – 2023</p>
+            <p>Percentage: 87%</p>
+        </div>
+
+        <div class="card">
+            <h3>SSC</h3>
+            <p>ZPHS High School, Nagulavaram</p>
+            <p>2020 – 2021</p>
+            <p>Percentage: 98%</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <h2 class="section-title">My <span>Projects</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Student Management System</h3>
+
+            <p>
+                A software project concept designed to manage
+                student information and academic records.
+            </p>
+
+            <p><b>Technologies:</b> Java, JDBC, SQL, MySQL</p>
+
+            <p>Planned features: Add, View, Update and Delete student details.</p>
+        </div>
+
+        <div class="card">
+            <h3>Footstep Energy Generator</h3>
+
+            <p>
+                A hardware project that converts mechanical energy
+                from human footsteps into electrical energy using
+                piezoelectric sensors.
+            </p>
+
+            <p><b>Components:</b> Piezoelectric Sensors, Rectifier, Capacitor</p>
+
+            <p>Designed for educational and low-power energy harvesting.</p>
+        </div>
+
+        <div class="card">
+            <h3>AI-Based Disaster Rescue Robot</h3>
+
+            <p>
+                An academic project concept focused on detecting
+                humans and supporting emergency rescue operations.
+            </p>
+
+            <p><b>Domain:</b> AI, Robotics, Human Detection</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+
+<section id="certifications">
+
+    <h2 class="section-title">My <span>Certifications</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Java Full Stack Developer</h3>
+            <p>Edu Skills</p>
+            <p>June 2025</p>
+        </div>
+
+        <div class="card">
+            <h3>Java Developer</h3>
+            <p>Infosys Springboard</p>
+            <p>May 2026</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SOFT SKILLS -->
+
+<section id="softskills">
+
+    <h2 class="section-title">Soft <span>Skills</span></h2>
+
+    <div class="grid">
+        <div class="skill">Communication Skills</div>
+        <div class="skill">Teamwork</div>
+        <div class="skill">Time Management</div>
+        <div class="skill">Willingness to Learn</div>
+        <div class="skill">Documentation</div>
+        <div class="skill">Internet Research</div>
+    </div>
+
+</section>
+
+<!-- RESUME -->
+
+<section id="resume">
+
+    <h2 class="section-title">My <span>Resume</span></h2>
+
+    <div class="card">
+        <h3>Gangula Akshaya – Resume</h3>
+
+        <p>Download or open my professional resume.</p>
+
+        <a href="assets/Gangula_Akshaya_Resume.pdf"
+           target="_blank" class="btn">
+           Open Resume
+        </a>
+
+        <a href="assets/Gangula_Akshaya_Resume.pdf"
+           download class="btn">
+           Download Resume
+        </a>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2 class="section-title">Contact <span>Me</span></h2>
+
+    <div class="card contact-info">
+
+        <p>Email:
+            <a href="mailto:gangulaakshaya49@gmail.com">
+                gangulaakshaya49@gmail.com
+            </a>
+        </p>
+
+        <p>Phone:
+            <a href="tel:9063959822">9063959822</a>
+        </p>
+
+        <p>Location: Enugupalem, Andhra Pradesh, India</p>
+
+        <p>GitHub:
+            <a href="https://github.com/GangulaAkshaya" target="_blank">
+                GitHub Profile
+            </a>
+        </p>
+
+        <p>LinkedIn:
+            <a href="https://www.linkedin.com/in/akshaya-gangula"
+               target="_blank">
+                LinkedIn Profile
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Gangula Akshaya | Personal Portfolio
+</footer>
+
+</main>
+</div>
+
+<script>
+
+function toggleTheme() {
+    document.body.classList.toggle("light");
+}
+
+const links = document.querySelectorAll(".side-menu a");
+
+links.forEach(link => {
+    link.addEventListener("click", function() {
+        links.forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
+    });
+});
+
+</script>
+
+</body>
+</html>
